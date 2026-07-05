@@ -5,14 +5,14 @@
   --admin-card-bg: #ffffff;
   --admin-border: #e4e9f0;
   --admin-primary: #6f4e37;
-  --admin-primary-rgb: 15, 118, 110;
+  --admin-primary-rgb: 111, 78, 55;
   --admin-primary-dark: #3b2a20;
-  --admin-primary-glow: rgba(15, 118, 110, 0.06);
+  --admin-primary-glow: rgba(111, 78, 55, 0.06);
   --admin-secondary: #f59e0b;
   --admin-secondary-rgb: 245, 158, 11;
   --admin-secondary-glow: rgba(245, 158, 11, 0.08);
-  --admin-accent: #5eead4;
-  --admin-sidebar-bg: #0b3d38;
+  --admin-accent: #c8a97e;
+  --admin-sidebar-bg: #2b1d12;
   --admin-danger: #ef4444;
   --admin-text: #0f172a;
   --admin-muted: #64748b;
