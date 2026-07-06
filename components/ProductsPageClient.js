@@ -109,7 +109,7 @@ export default function ProductsPageClient({
               boxShadow: '0 2px 6px rgba(0,0,0,0.03)'
             }}
           >
-            🌱 Tất cả
+            ☕ Tất cả
           </Link>
           {categories.map((cat) => {
             const isActive = activeCategory?.slug === cat.slug;
@@ -166,7 +166,7 @@ export default function ProductsPageClient({
                     }}
                     className={activeCategory ? "category-link-hover" : ""}
                   >
-                    <span>🌱 Tất cả đặc sản</span>
+                    <span>☕ Tất cả sản phẩm</span>
                   </Link>
                 </li>
                 {categories.map((cat) => {

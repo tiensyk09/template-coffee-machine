@@ -6,39 +6,39 @@ export default function DestinationsPage() {
   const destinations = [
     {
       id: 1,
-      title: 'Đỉnh Núi Ngọc Linh - Mái Nhà Tây Nguyên',
-      location: 'Kon Tum & Quảng Nam',
-      elevation: 'Độ cao: 2.596m',
-      description: 'Đỉnh Ngọc Linh quanh năm mây mù bao phủ, khí hậu mát mẻ và thổ nhưỡng đặc hữu là nơi duy nhất Coffee Machine sinh trưởng tự nhiên và tích tụ được lượng Saponin cao nhất thế giới.',
+      title: 'Thủ Phủ Cà Phê Buôn Ma Thuột',
+      location: 'Đắk Lắk, Tây Nguyên',
+      elevation: 'Độ cao: 500 - 800m',
+      description: 'Buôn Ma Thuột được mệnh danh là thủ phủ cà phê của Việt Nam. Đất đỏ bazan màu mỡ cùng khí hậu Tây Nguyên tạo nên những hạt Robusta đậm đà, hậu vị mạnh mẽ và hàm lượng caffeine cao bậc nhất thế giới.',
       image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
-      badge: 'Bảo Tồn Tự Nhiên'
+      badge: 'Vùng Cà Phê Trọng Điểm'
     },
     {
       id: 2,
-      title: 'Thủ Phủ Coffee Machine Trà Linh',
-      location: 'Xã Trà Linh, huyện Nam Trà My, Quảng Nam',
+      title: 'Cầu Đất - Đà Lạt',
+      location: 'Xã Xuân Trường, TP. Đà Lạt, Lâm Đồng',
       elevation: 'Độ cao: > 1.500m',
-      description: 'Xã Trà Linh là thủ phủ sâm Ngọc Linh lớn nhất nước ta. Nơi đây có điều kiện thời tiết lý tưởng và được quy hoạch bảo tồn nguồn gen sâm thuần chủng chất lượng hàng đầu Việt Nam.',
+      description: 'Cầu Đất là vùng trồng Arabica trứ danh của Đà Lạt. Độ cao lý tưởng trên 1.500m cùng biên độ nhiệt ngày đêm lớn giúp hạt cà phê Arabica chín chậm, tích tụ hương vị tinh tế với vị chua thanh và hương trái cây đặc trưng.',
       image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80',
-      badge: 'Vùng Trồng Sâm Trọng Điểm'
+      badge: 'Vùng Arabica Cao Cấp'
     },
     {
       id: 3,
-      title: 'Showroom Kết Nối Ngọc Linh Xanh Đà Nẵng',
-      location: 'Thành phố Đà Nẵng',
-      elevation: 'Trung tâm trưng bày',
-      description: 'Nằm tại trung tâm thành phố Đà Nẵng năng động, showroom là điểm dừng chân lý tưởng để du khách và khách hàng đến trải nghiệm, thưởng trà sâm và mua sắm các đặc sản sâm Ngọc Linh chính hiệu, đầy đủ chứng nhận xuất xứ.',
+      title: 'Cà Phê Khe Sanh',
+      location: 'Huyện Hướng Hóa, Quảng Trị',
+      elevation: 'Độ cao: 600 - 700m',
+      description: 'Khe Sanh là vùng đất giàu tiềm năng của cà phê Arabica miền Trung. Thổ nhưỡng và khí hậu vùng cao nguyên Hướng Hóa mang đến những mẻ cà phê sạch, hương thơm dịu, được rang xay và kiểm soát chất lượng theo tiêu chuẩn đặc sản.',
       image: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&w=800&q=80',
-      badge: 'Showroom Chính Hãng'
+      badge: 'Vùng Nguyên Liệu Sạch'
     },
     {
       id: 4,
-      title: 'Vườn Trồng Sâm Dưới Tán Rừng Già',
-      location: 'Xã Trà Linh, Nam Trà My, Quảng Nam',
-      elevation: 'Độ cao: > 1.800m',
-      description: 'Trại sâm Ngọc Linh Xanh được trồng bán hoang dã sâu dưới tán rừng già nguyên sinh. Sâm được nuôi dưỡng hoàn toàn tự nhiên bởi thảm mục rừng và sương giá, không có sự can thiệp của hóa chất bảo vệ thực vật.',
+      title: 'Cà Phê Sơn La Vùng Núi Tây Bắc',
+      location: 'Tỉnh Sơn La, Tây Bắc',
+      elevation: 'Độ cao: > 1.000m',
+      description: 'Sơn La là vựa cà phê Arabica lớn của vùng núi Tây Bắc. Được trồng trên các sườn đồi cao, cây cà phê hấp thụ sương giá và khí hậu ôn hòa, cho ra hạt Arabica hương vị cân bằng, thanh nhẹ, canh tác theo hướng bền vững và tự nhiên.',
       image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80',
-      badge: 'Trại Coffee Machine Xanh'
+      badge: 'Vùng Arabica Tây Bắc'
     }
   ];
 
@@ -50,16 +50,16 @@ export default function DestinationsPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: '#6b7280' }}>
           <Link href="/" style={{ color: '#374151', textDecoration: 'none' }}>Trang chủ</Link>
           <span>/</span>
-          <span style={{ color: '#5a3d29', fontWeight: 600 }}>Điểm đến & Vùng trồng sâm</span>
+          <span style={{ color: '#5a3d29', fontWeight: 600 }}>Điểm đến & Vùng nguyên liệu cà phê</span>
         </div>
 
         {/* Page Header */}
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <h1 style={{ fontSize: '32px', fontWeight: 800, color: '#2b1d12', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-            Khám Phá Vùng Đất Coffee Machine
+            Bản Đồ Cà Phê Việt Nam
           </h1>
           <p style={{ color: '#4b5563', fontSize: '15px', maxWidth: '700px', margin: '0 auto', lineHeight: 1.6 }}>
-            Nơi linh thiêng ngự trị dòng nhân sâm quý nhất thế giới. Trải nghiệm hành trình tìm hiểu xuất xứ, vùng trồng và quy trình khai thác Coffee Machine Kon Tum nguyên bản.
+            Nơi hội tụ những vùng nguyên liệu cà phê danh tiếng nhất Việt Nam. Trải nghiệm hành trình tìm hiểu xuất xứ, giống cà phê Robusta - Arabica và quy trình canh tác từ những vùng trồng đặc sản.
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function DestinationsPage() {
                       onMouseEnter={(e) => { e.currentTarget.style.background = '#5a3d29'; e.currentTarget.style.color = '#fff'; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = '#f2e9dc'; e.currentTarget.style.color = '#5a3d29'; }}
                     >
-                      Xem sản phẩm vùng trồng ➔
+                      Xem cà phê vùng này ➔
                     </Link>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export default function DestinationsPage() {
           </div>
           <h3 style={{ fontSize: '26px', fontWeight: 800, marginBottom: '12px' }}>Bạn Muốn Trải Nghiệm Thực Tế?</h3>
           <p style={{ fontSize: '15px', color: '#f2e9dc', maxWidth: '600px', margin: '0 auto 28px', lineHeight: 1.6 }}>
-            Ngọc Linh Xanh tổ chức các chương trình tham quan vườn sâm định kỳ cho các đối tác và khách hàng VIP muốn kiểm chứng quy trình gieo trồng tự nhiên.
+            Coffee Machine tổ chức các chương trình tham quan nông trại cà phê định kỳ cho các đối tác và khách hàng VIP muốn kiểm chứng quy trình canh tác và rang xay tự nhiên.
           </p>
           <a
             href="tel:0769442777"

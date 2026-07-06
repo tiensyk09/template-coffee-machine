@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '16px 0', fontSize: '13px', color: '#6b7280' }}>
           <Link href="/" style={{ color: '#374151', textDecoration: 'none' }}>Trang chủ</Link>
           <span>/</span>
-          <Link href="/posts" style={{ color: '#374151', textDecoration: 'none' }}>Cẩm nang dược liệu</Link>
+          <Link href="/posts" style={{ color: '#374151', textDecoration: 'none' }}>Cẩm nang cà phê</Link>
           <span>/</span>
           <span style={{ color: '#5a3d29', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '240px' }}>
             {article.title}
@@ -75,7 +75,7 @@ export default async function ArticlePage({ params }) {
             <article>
               {/* Category badge */}
               <span style={{ display: 'inline-block', background: '#f2e9dc', color: '#5a3d29', fontSize: '11px', fontWeight: 700, padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '16px' }}>
-                Cẩm Nang Dược Liệu
+                Cẩm Nang Cà Phê
               </span>
 
               {/* Title */}
@@ -87,7 +87,7 @@ export default async function ArticlePage({ params }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '12.5px', color: '#6b7280', marginBottom: '24px', borderBottom: '1px solid #e5e7eb', paddingBottom: '16px', flexWrap: 'wrap' }}>
                 <span>📅 {new Date(article.created_at).toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                 <span>•</span>
-                <span>👤 {article.author_name || 'Ngọc Linh Xanh'}</span>
+                <span>👤 {article.author_name || 'Coffee Machine'}</span>
                 <span>•</span>
                 <span>👁️ {(article.views + 1).toLocaleString()} lượt xem</span>
               </div>

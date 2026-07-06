@@ -55,10 +55,10 @@ function HeroBlock({ configs = {} }) {
       overflow: 'hidden'
     }}>
       <div style={{ position: 'absolute', right: '-20px', bottom: '-20px', fontSize: '130px', opacity: 0.08, pointerEvents: 'none' }}>
-        🌿
+        ☕
       </div>
       <h2 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '16px', color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.3 }}>
-        {configs.title || 'Ngọc Linh Xanh'}
+        {configs.title || 'Coffee Machine'}
       </h2>
       <p style={{ fontSize: '16px', lineHeight: 1.7, opacity: 0.9, maxWidth: '750px', margin: '0 auto 28px', color: '#f2e9dc' }}>
         {configs.description || ''}
@@ -110,7 +110,7 @@ function FeaturesBlock({ configs = {} }) {
         {items.map((item, idx) => (
           <div key={idx} style={{ background: '#ffffff', border: '1px solid #e5e7eb', borderRadius: '16px', padding: '24px', boxShadow: '0 4px 16px rgba(0,0,0,0.02)', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
             <div style={{ background: '#f2e9dc', color: '#5a3d29', width: '48px', height: '48px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0 }}>
-              {idx === 0 ? '🌿' : idx === 1 ? '✨' : '💖'}
+              {idx === 0 ? '☕' : idx === 1 ? '✨' : '💖'}
             </div>
             <div>
               <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#2b1d12', margin: '0 0 8px 0' }}>{item.title}</h4>
@@ -314,7 +314,7 @@ const DEFAULT_CATEGORIES = [
   { title: 'Sinh lý - Nội tiết tố', sub: '38 sản phẩm', img: '/images/Sinh_li_Noi_tiet_to_f9d4faa138.png', icon: '⚕️' },
   { title: 'Tim mạch - Huyết áp', sub: '18 sản phẩm', img: '/images/Suc_khoe_tim_mach_e413362a48.png', icon: '❤️' },
   { title: 'Miễn dịch - Đề kháng', sub: '45 sản phẩm', img: '/images/Tang_suc_de_khang_mien_dich_9926e39ba8.png', icon: '🛡️' },
-  { title: 'Tiêu hóa', sub: '68 sản phẩm', img: '/images/da_day_24ef495d10.png', icon: '🌿' },
+  { title: 'Tiêu hóa', sub: '68 sản phẩm', img: '/images/da_day_24ef495d10.png', icon: '☕' },
   { title: 'Giải pháp làn da', sub: '74 sản phẩm', img: '/images/My_pham_trang_diem_8589bc7b93.png', icon: '✨' },
   { title: 'Chăm sóc da mặt', sub: '165 sản phẩm', img: '/images/San_pham_tu_thien_nhien_4435bda613.png', icon: '🧴' },
   { title: 'Hỗ trợ làm đẹp', sub: '17 sản phẩm', img: '/images/Thiet_bi_lam_dep_570678dfac.png', icon: '💄' },
@@ -558,7 +558,7 @@ function RecentPostsBlock({ configs = {} }) {
                   </div>
                   <div className="lc-blog-row-info">
                     <h4><Link href={`/posts/${post.slug}`}>{post.title}</Link></h4>
-                    <span>{post.author_name || 'Ngọc Linh Xanh'} · {new Date(post.created_at).toLocaleDateString('vi-VN')}</span>
+                    <span>{post.author_name || 'Coffee Machine'} · {new Date(post.created_at).toLocaleDateString('vi-VN')}</span>
                   </div>
                 </div>
               ))}

@@ -233,7 +233,7 @@ export default function CheckoutPageClient() {
                   ✓ Phương thức thanh toán: <strong>Thanh toán khi nhận hàng (COD)</strong>.
                 </p>
                 <p style={{ margin: '8px 0 0 0', lineHeight: '1.6' }}>
-                  ✓ Đội ngũ Ngọc Linh Xanh sẽ liên hệ qua điện thoại với quý khách để xác nhận đơn hàng trước khi gửi đi.
+                  ✓ Đội ngũ Coffee Machine sẽ liên hệ qua điện thoại với quý khách để xác nhận đơn hàng trước khi gửi đi.
                 </p>
               </div>
             )}
@@ -386,7 +386,7 @@ export default function CheckoutPageClient() {
                 />
                 <div>
                   <strong style={{ color: '#2b1d12', fontSize: '14px' }}>Thanh toán khi nhận hàng (COD)</strong>
-                  <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '2px' }}>Quý khách thanh toán tiền mặt cho nhân viên giao hàng khi nhận sâm.</div>
+                  <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '2px' }}>Quý khách thanh toán tiền mặt cho nhân viên giao hàng khi nhận máy pha cà phê.</div>
                 </div>
               </label>
               <label style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '14px', border: '1.5px solid ' + (form.paymentMethod === 'bank' ? '#5a3d29' : '#cbd5e1'), borderRadius: '10px', cursor: 'pointer', background: form.paymentMethod === 'bank' ? '#f7f1e8' : '#fff', transition: 'all 0.15s' }}>

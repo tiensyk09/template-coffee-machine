@@ -32,16 +32,16 @@ export default function BlogIndexPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px', fontSize: '13px', color: '#6b7280' }}>
           <Link href="/" style={{ color: '#374151', textDecoration: 'none' }}>Trang chủ</Link>
           <span>/</span>
-          <span style={{ color: '#5a3d29', fontWeight: 600 }}>Cẩm nang dược liệu</span>
+          <span style={{ color: '#5a3d29', fontWeight: 600 }}>Cẩm nang cà phê</span>
         </div>
 
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ fontSize: '32px', fontWeight: 800, color: '#2b1d12', marginBottom: '12px', letterSpacing: '-0.02em' }}>
-            Tin Tức & Cẩm Nang Dược Liệu
+            Tin Tức & Cẩm Nang Cà Phê
           </h1>
           <p style={{ color: '#4b5563', fontSize: '15px', maxWidth: '600px', margin: '0 auto 24px', lineHeight: 1.6 }}>
-            Cập nhật kiến thức y học cổ truyền, cách sử dụng sâm Ngọc Linh, sâm dây và các loại dược liệu quý hiếm từ Kon Tum.
+            Cập nhật kiến thức pha chế, cách sử dụng & bảo dưỡng máy pha cà phê, chọn cà phê hạt và công thức pha chế chuẩn barista.
           </p>
 
           {/* Search bar */}
@@ -138,7 +138,7 @@ export default function BlogIndexPage() {
                   {/* Footer metadata */}
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #f3f4f6', paddingTop: '16px', marginTop: 'auto' }}>
                     <span style={{ fontSize: '12.5px', color: '#6b7280', fontWeight: 500 }}>
-                      👤 {post.author_name || 'Ngọc Linh Xanh'}
+                      👤 {post.author_name || 'Coffee Machine'}
                     </span>
                     <Link href={`/posts/${post.slug}`} style={{ fontSize: '13px', fontWeight: 700, color: '#5a3d29', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                       Xem chi tiết <span style={{ transition: 'transform 0.2s' }} className="read-more-arrow">→</span>

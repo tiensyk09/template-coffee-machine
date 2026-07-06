@@ -14,10 +14,10 @@ export default function AdminProductsPage() {
   const [uploading, setUploading] = useState(false);
   
   const sampleImages = [
-    { name: 'Mật ong', url: 'https://ngoclinhxanh.com/wp-content/uploads/2021/02/mat-ong-rung-nguyen-chat-ngoc-linh-xanh-matongrung-ngoclinhxanh-com-mat-ong-khoai-treo-lo-du-dang-sam-dat.jpg' },
-    { name: 'Sâm dây', url: 'https://ngoclinhxanh.com/wp-content/uploads/2017/12/sam-day-ngoc-linh-kho-hong-dang-sam-kho-sam-day-kho-rung-samday-samdayngoclinh-ngoc-linh-xanh-ngoclinhxanh.jpg-8.jpg' },
-    { name: 'Nấm lim', url: 'https://ngoclinhxanh.com/wp-content/uploads/2017/12/nam-lim-xanh-rung-ngoc-linh-xanh-chinh-hieu-tu-nhien-kon-tum-namlimxanh-ngoclinhxanh-6.jpg' },
-    { name: 'Linh chi', url: 'https://ngoclinhxanh.com/wp-content/uploads/2018/11/nam-linh-chi-co-co-rung-nam-muong-mua-ban-tac-dung-n%E1%BA%A5m-linh-chi-c%E1%BB%95-c%C3%B2-chat-luong-chinh-hieu-ng%E1%BB%8Dc-linh-xanh-nam-muong-ngoclinhxanh-4.jpg' }
+    { name: 'Máy pha Espresso', url: 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6' },
+    { name: 'Máy xay cà phê', url: 'https://images.unsplash.com/photo-1516224498413-84ecf3a1e7fd' },
+    { name: 'Ca đánh sữa inox', url: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085' },
+    { name: 'Cà phê hạt rang mộc', url: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e' }
   ];
 
   const handleImageUpload = async (e) => {
@@ -186,7 +186,7 @@ export default function AdminProductsPage() {
     const method = isEdit ? 'PUT' : 'POST';
 
     try {
-      const fallbackImage = 'https://ngoclinhxanh.com/wp-content/uploads/2021/02/mat-ong-rung-nguyen-chat-ngoc-linh-xanh-matongrung-ngoclinhxanh-com-mat-ong-khoai-treo-lo-du-dang-sam-dat.jpg';
+      const fallbackImage = 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6';
       const finalThumbnail = form.thumbnail && form.thumbnail.trim() !== '' ? form.thumbnail.trim() : fallbackImage;
       const res = await fetch(url, {
         method,
@@ -505,7 +505,7 @@ export default function AdminProductsPage() {
                       />
                     </div>
                   ) : (
-                    <span style={{ fontSize: '11px', color: 'var(--admin-muted)', textAlign: 'center', lineHeight: '1.4' }}>Chưa có ảnh<br/>(Tự động thay bằng ảnh sâm mặc định)</span>
+                    <span style={{ fontSize: '11px', color: 'var(--admin-muted)', textAlign: 'center', lineHeight: '1.4' }}>Chưa có ảnh<br/>(Tự động thay bằng ảnh cà phê mặc định)</span>
                   )}
                 </div>
               </div>

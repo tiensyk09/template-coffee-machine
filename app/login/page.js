@@ -44,13 +44,13 @@ function LoginPageContent() {
       fontFamily: "'Inter', sans-serif",
       position: 'relative',
       overflow: 'hidden',
-      background: 'linear-gradient(135deg, #2b1d12 0%, #064e3b 40%, #5a3d29 70%, #1a3a1a 100%)'
+      background: 'linear-gradient(135deg, #2b1d12 0%, #4a3220 40%, #6f4e37 70%, #1a1008 100%)'
     }}>
       {/* Decorative background circles */}
       <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '320px', height: '320px', borderRadius: '50%', background: 'rgba(212,175,55,0.08)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-100px', left: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', top: '30%', left: '5%', fontSize: '80px', opacity: 0.06, pointerEvents: 'none', userSelect: 'none' }}>🌿</div>
-      <div style={{ position: 'absolute', bottom: '20%', right: '4%', fontSize: '80px', opacity: 0.06, pointerEvents: 'none', userSelect: 'none' }}>🌱</div>
+      <div style={{ position: 'absolute', top: '30%', left: '5%', fontSize: '80px', opacity: 0.06, pointerEvents: 'none', userSelect: 'none' }}>☕</div>
+      <div style={{ position: 'absolute', bottom: '20%', right: '4%', fontSize: '80px', opacity: 0.06, pointerEvents: 'none', userSelect: 'none' }}>🫘</div>
 
       <div style={{
         width: '100%',
@@ -67,7 +67,7 @@ function LoginPageContent() {
       }}>
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <div style={{ fontSize: '52px', marginBottom: '12px', lineHeight: 1 }}>🌿</div>
+          <div style={{ fontSize: '52px', marginBottom: '12px', lineHeight: 1 }}>☕</div>
           <h1 style={{ fontSize: '22px', fontWeight: 900, color: '#ffffff', margin: '0 0 4px 0', letterSpacing: '-0.02em' }}>
             Đăng Nhập
           </h1>
@@ -204,7 +204,7 @@ function LoginPageContent() {
               boxShadow: loading ? 'none' : '0 4px 16px rgba(217,119,6,0.35)'
             }}
           >
-            {loading ? 'Đang đăng nhập...' : '🌿 Đăng Nhập'}
+            {loading ? 'Đang đăng nhập...' : '☕ Đăng Nhập'}
           </button>
         </form>
 
@@ -251,7 +251,7 @@ export default function UserLoginPage() {
         alignItems: 'center',
         justifyContent: 'center',
         fontFamily: "'Inter', sans-serif",
-        background: 'linear-gradient(135deg, #2b1d12 0%, #064e3b 40%, #5a3d29 70%, #1a3a1a 100%)',
+        background: 'linear-gradient(135deg, #2b1d12 0%, #4a3220 40%, #6f4e37 70%, #1a1008 100%)',
         color: '#fff'
       }}>
         Đang tải...

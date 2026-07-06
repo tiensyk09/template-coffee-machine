@@ -36,7 +36,7 @@ export default function WishlistPage() {
             Sản Phẩm Yêu Thích ❤️
           </h1>
           <p style={{ color: '#6b7280', fontSize: '14.5px', margin: 0 }}>
-            Lưu trữ những sản phẩm quý giá từ đại ngàn Ngọc Linh bạn đang quan tâm.
+            Lưu trữ những sản phẩm máy pha cà phê và phụ kiện pha chế bạn đang quan tâm.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export default function WishlistPage() {
               style={{ display: 'inline-block', padding: '12px 30px', borderRadius: '30px', background: '#5a3d29', color: '#fff', fontWeight: 700, textDecoration: 'none', fontSize: '14px' }}
               className="wishlist-btn-hover"
             >
-              Khám phá sản phẩm sâm
+              Khám phá sản phẩm cà phê
             </Link>
           </div>
         ) : (

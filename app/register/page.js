@@ -58,8 +58,8 @@ function RegisterPageContent() {
       {/* Decorative background elements */}
       <div style={{ position: 'absolute', top: '-80px', right: '-80px', width: '320px', height: '320px', borderRadius: '50%', background: 'rgba(212,175,55,0.08)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-100px', left: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', top: '25%', left: '4%', fontSize: '80px', opacity: 0.05, pointerEvents: 'none', userSelect: 'none' }}>🌿</div>
-      <div style={{ position: 'absolute', bottom: '25%', right: '5%', fontSize: '80px', opacity: 0.05, pointerEvents: 'none', userSelect: 'none' }}>🌱</div>
+      <div style={{ position: 'absolute', top: '25%', left: '4%', fontSize: '80px', opacity: 0.05, pointerEvents: 'none', userSelect: 'none' }}>☕</div>
+      <div style={{ position: 'absolute', bottom: '25%', right: '5%', fontSize: '80px', opacity: 0.05, pointerEvents: 'none', userSelect: 'none' }}>☕</div>
 
       <div style={{
         width: '100%',
@@ -75,7 +75,7 @@ function RegisterPageContent() {
       }}>
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <div style={{ fontSize: '50px', marginBottom: '10px', lineHeight: 1 }}>🌱</div>
+          <div style={{ fontSize: '50px', marginBottom: '10px', lineHeight: 1 }}>☕</div>
           <h1 style={{ fontSize: '22px', fontWeight: 900, color: '#2b1d12', margin: '0 0 4px 0', letterSpacing: '-0.02em' }}>
             Đăng Ký Thành Viên
           </h1>

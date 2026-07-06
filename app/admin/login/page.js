@@ -42,16 +42,16 @@ export default function AdminLoginPage() {
         position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
         pointerEvents: 'none', zIndex: 0,
         background: `
-          radial-gradient(circle at 15% 25%, rgba(15, 118, 110, 0.12) 0%, transparent 45%),
-          radial-gradient(circle at 85% 75%, rgba(15, 118, 110, 0.06) 0%, transparent 45%)
+          radial-gradient(circle at 15% 25%, rgba(111, 78, 55, 0.12) 0%, transparent 45%),
+          radial-gradient(circle at 85% 75%, rgba(111, 78, 55, 0.06) 0%, transparent 45%)
         `
       }} />
       <div className="noise-overlay-admin" />
 
       <div className="login-card" style={{
         background: 'rgba(17, 22, 31, 0.9)',
-        border: '1px solid rgba(15, 118, 110, 0.3)',
-        boxShadow: '0 8px 48px rgba(0,0,0,0.8), 0 0 40px rgba(13,104,50,0.06)'
+        border: '1px solid rgba(111, 78, 55, 0.3)',
+        boxShadow: '0 8px 48px rgba(0,0,0,0.8), 0 0 40px rgba(59,42,32,0.06)'
       }}>
         {/* Header */}
         <div className="login-logo-wrap">
@@ -62,11 +62,11 @@ export default function AdminLoginPage() {
             gap: '6px',
             padding: '4px 12px',
             borderRadius: '20px',
-            background: 'rgba(15, 118, 110, 0.2)',
-            border: '1px solid rgba(15, 118, 110, 0.4)',
+            background: 'rgba(111, 78, 55, 0.2)',
+            border: '1px solid rgba(111, 78, 55, 0.4)',
             fontSize: '11px',
             fontWeight: 700,
-            color: '#5eead4',
+            color: '#c9a07a',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
             marginBottom: '16px'
@@ -74,11 +74,11 @@ export default function AdminLoginPage() {
             🛡️ QUẢN TRỊ VIÊN
           </div>
 
-          <div className="login-logo" style={{ color: '#6f4e37', filter: 'drop-shadow(0 0 12px rgba(15, 118, 110, 0.8))' }}>
-            🌿
+          <div className="login-logo" style={{ color: '#e8c9a0', filter: 'drop-shadow(0 0 12px rgba(111, 78, 55, 0.8))' }}>
+            ☕
           </div>
           <div className="login-title">Admin Portal</div>
-          <div className="login-sub">Đặc Sản Việt – Trang quản trị</div>
+          <div className="login-sub">Coffee Machine – Trang quản trị</div>
         </div>
 
         {error && (
@@ -102,7 +102,7 @@ export default function AdminLoginPage() {
                 required
                 autoComplete="username"
                 autoFocus
-                style={{ borderColor: 'rgba(15, 118, 110, 0.3)', background: '#ffffff', color: '#0f172a', paddingLeft: '40px' }}
+                style={{ borderColor: 'rgba(111, 78, 55, 0.3)', background: '#ffffff', color: '#0f172a', paddingLeft: '40px' }}
               />
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function AdminLoginPage() {
                 onChange={e => setForm({ ...form, password: e.target.value })}
                 required
                 autoComplete="current-password"
-                style={{ paddingRight: '44px', borderColor: 'rgba(15, 118, 110, 0.3)', background: '#ffffff', color: '#0f172a', paddingLeft: '40px' }}
+                style={{ paddingRight: '44px', borderColor: 'rgba(111, 78, 55, 0.3)', background: '#ffffff', color: '#0f172a', paddingLeft: '40px' }}
               />
               <button
                 type="button"
@@ -143,9 +143,9 @@ export default function AdminLoginPage() {
             style={{
               marginTop: '8px',
               background: loading
-                ? 'rgba(15, 118, 110, 0.4)'
+                ? 'rgba(111, 78, 55, 0.4)'
                 : 'linear-gradient(135deg, #6f4e37 0%, #3b2a20 100%)',
-              boxShadow: loading ? 'none' : '0 4px 20px rgba(15, 118, 110, 0.4)'
+              boxShadow: loading ? 'none' : '0 4px 20px rgba(111, 78, 55, 0.4)'
             }}
           >
             {loading ? 'Đang xác thực...' : '🔐 Đăng nhập Admin'}
@@ -154,7 +154,7 @@ export default function AdminLoginPage() {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px' }} className="login-back">
           <Link href="/">← Về trang chủ</Link>
-          <Link href="/login" style={{ color: '#5eead4', fontWeight: '600' }}>
+          <Link href="/login" style={{ color: '#c9a07a', fontWeight: '600' }}>
             Đăng nhập khách hàng →
           </Link>
         </div>
@@ -164,17 +164,17 @@ export default function AdminLoginPage() {
       <style>{`
         .login-input:focus {
           border-color: #6f4e37 !important;
-          box-shadow: 0 0 8px rgba(15, 118, 110, 0.3) !important;
+          box-shadow: 0 0 8px rgba(111, 78, 55, 0.3) !important;
         }
         .login-btn:hover:not(:disabled) {
           background: linear-gradient(135deg, #3b2a20 0%, #6f4e37 100%) !important;
-          box-shadow: 0 0 16px rgba(15, 118, 110, 0.5) !important;
+          box-shadow: 0 0 16px rgba(111, 78, 55, 0.5) !important;
         }
         .login-back a {
           color: rgba(255,255,255,0.4);
         }
         .login-back a:hover {
-          color: #5eead4;
+          color: #c9a07a;
         }
       `}</style>
     </div>

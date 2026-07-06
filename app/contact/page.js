@@ -57,7 +57,7 @@ export default function ContactPage() {
             Liên Hệ Với Chúng Tôi
           </h1>
           <p style={{ color: '#4b5563', fontSize: '15px', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>
-            Ngọc Linh Xanh luôn sẵn sàng lắng nghe mọi thắc mắc và nhu cầu tư vấn dược liệu của quý khách. Hãy liên hệ với chúng tôi để được tư vấn chính gốc 100%.
+            Coffee Machine luôn sẵn sàng lắng nghe mọi thắc mắc và nhu cầu tư vấn máy pha cà phê, phụ kiện pha chế của quý khách. Hãy liên hệ với chúng tôi để được tư vấn chính hãng 100%.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#2b1d12', margin: '0 0 6px 0' }}>Trụ sở chính</h4>
-                  <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5, margin: 0 }}>Xã Trà Linh, huyện Nam Trà My, tỉnh Quảng Nam</p>
+                  <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5, margin: 0 }}>123 Nguyễn Văn Trỗi, Phường 8, Quận Phú Nhuận, TP.HCM</p>
                 </div>
               </div>
 
@@ -96,7 +96,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#2b1d12', margin: '0 0 6px 0' }}>Hòm thư điện tử</h4>
-                  <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5, margin: 0 }}>ngoclinhxanhcom@gmail.com</p>
+                  <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5, margin: 0 }}>coffeemachine.vn@gmail.com</p>
                 </div>
               </div>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#2b1d12', margin: '0 0 6px 0' }}>Trang thông tin điện tử</h4>
-                  <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5, margin: 0 }}>www.ngoclinhxanh.com</p>
+                  <p style={{ fontSize: '14px', color: '#4b5563', lineHeight: 1.5, margin: 0 }}>www.coffeemachine.vn</p>
                 </div>
               </div>
 
@@ -114,9 +114,9 @@ export default function ContactPage() {
 
             {/* Business info notice card */}
             <div style={{ background: 'linear-gradient(135deg, #5a3d29 0%, #2b1d12 100%)', color: '#ffffff', borderRadius: '20px', padding: '28px', boxShadow: '0 4px 20px rgba(13, 104, 50, 0.1)' }}>
-              <h4 style={{ fontSize: '15px', fontWeight: 800, margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Ngọc Linh Xanh</h4>
+              <h4 style={{ fontSize: '15px', fontWeight: 800, margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Coffee Machine</h4>
               <p style={{ fontSize: '13px', lineHeight: 1.5, opacity: 0.9, margin: 0 }}>
-                Giấy chứng nhận đăng ký hộ kinh doanh số: 38B8000132 do Phòng Tài chính - Kế hoạch Huyện Nam Trà My - Tỉnh Quảng Nam cấp ngày 12/03/2019.
+                Giấy chứng nhận đăng ký hộ kinh doanh số: 38B8000132 do Phòng Tài chính - Kế hoạch Quận Phú Nhuận - TP.HCM cấp ngày 12/03/2019.
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export default function ContactPage() {
                 <label style={{ fontSize: '13px', fontWeight: 600, color: '#374151' }}>Nội dung cần tư vấn *</label>
                 <textarea
                   rows="4"
-                  placeholder="Nhập nội dung tin nhắn hoặc nhu cầu tư vấn sâm..."
+                  placeholder="Nhập nội dung tin nhắn hoặc nhu cầu tư vấn máy pha cà phê..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   style={{ padding: '10px 14px', borderRadius: '8px', border: '1.5px solid #e5e7eb', fontSize: '14px', outline: 'none', resize: 'vertical' }}

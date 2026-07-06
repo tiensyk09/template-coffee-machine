@@ -153,13 +153,13 @@ export default function CartPageClient() {
           <div style={{ background: '#fff', borderRadius: '16px', padding: '60px 20px', textAlign: 'center', border: '1px solid #e5e7eb', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
             <div style={{ fontSize: '64px', marginBottom: '16px' }}>🛒</div>
             <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#2b1d12' }}>Giỏ hàng trống</h3>
-            <p style={{ color: '#6b7280', fontSize: '14px', marginTop: '6px' }}>Bạn chưa chọn sản phẩm đặc sản nào.</p>
+            <p style={{ color: '#6b7280', fontSize: '14px', marginTop: '6px' }}>Bạn chưa chọn sản phẩm nào.</p>
             <Link
               href="/products"
               style={{ display: 'inline-block', marginTop: '20px', background: '#5a3d29', color: '#fff', border: 'none', padding: '12px 28px', borderRadius: '30px', fontWeight: 700, textDecoration: 'none' }}
               className="cart-checkout-btn-hover"
             >
-              Tiếp tục chọn đặc sản
+              Tiếp tục chọn sản phẩm
             </Link>
           </div>
         ) : (
@@ -244,7 +244,7 @@ export default function CartPageClient() {
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Link href="/products" style={{ color: '#5a3d29', fontWeight: 700, fontSize: '14px', textDecoration: 'none' }}>
-                  ← Chọn thêm đặc sản khác
+                  ← Chọn thêm sản phẩm khác
                 </Link>
                 <button
                   onClick={clearCart}

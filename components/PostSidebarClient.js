@@ -23,7 +23,7 @@ export default function PostSidebarClient({ recentUpdates = [], suggestedProduct
   return (
     <aside style={{ display: 'flex', flexDirection: 'column', gap: '24px', position: 'sticky', top: '130px', alignSelf: 'flex-start' }}>
       
-      {/* 1. Contact CTA - Ngọc Linh Xanh */}
+      {/* 1. Contact CTA - Coffee Machine */}
       <div style={{
         background: 'linear-gradient(135deg, #5a3d29 0%, #0a4f26 100%)',
         color: '#ffffff',
@@ -34,13 +34,13 @@ export default function PostSidebarClient({ recentUpdates = [], suggestedProduct
         overflow: 'hidden'
       }}>
         <div style={{ position: 'absolute', right: '-10px', bottom: '-10px', fontSize: '72px', opacity: 0.12, pointerEvents: 'none' }}>
-          🌿
+          ☕
         </div>
         <h4 style={{ fontSize: '16px', fontWeight: 800, margin: '0 0 8px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
           Tư vấn đặt hàng
         </h4>
         <p style={{ fontSize: '13px', lineHeight: 1.5, opacity: 0.9, margin: '0 0 16px 0' }}>
-          Liên hệ trực tiếp để được tư vấn sản phẩm dược liệu tự nhiên chính gốc Ngọc Linh - Kon Tum.
+          Liên hệ trực tiếp để được tư vấn máy pha cà phê và cà phê hạt chính hãng, chuẩn barista.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <a

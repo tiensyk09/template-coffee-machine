@@ -20,7 +20,7 @@ export async function generateMetadata({ searchParams }) {
   
   return {
     title,
-    description: 'Mua sâm Ngọc Linh rừng tự nhiên, sâm dây Ngọc Linh, mật ong rừng nguyên chất chính gốc Kon Tum tại Ngọc Linh Xanh.'
+    description: 'Mua máy pha cà phê Espresso, máy xay cà phê, máy pha tự động và phụ kiện pha chế chính hãng tại Coffee Machine.'
   };
 }
 
