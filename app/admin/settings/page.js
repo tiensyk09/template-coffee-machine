@@ -16,7 +16,7 @@ export default function SettingsDashboard() {
   });
 
   const [header, setHeader] = useState({
-    logoText: 'Command Code',
+    logoText: 'Coffee Machine',
     logoIcon: '⚡',
     links: []
   });
@@ -59,7 +59,7 @@ export default function SettingsDashboard() {
         } catch {}
 
         setHeader({
-          logoText: s.header_logo_text || 'Command Code',
+          logoText: s.header_logo_text || 'Coffee Machine',
           logoIcon: s.header_logo_icon || '⚡',
           links: parsedLinks
         });
@@ -309,7 +309,7 @@ export default function SettingsDashboard() {
                       className="adm-input"
                       value={seo.site_title}
                       onChange={e => setSeo({ ...seo, site_title: e.target.value })}
-                      placeholder="e.g. Command Code - AI coding agent with taste"
+                      placeholder="e.g. Coffee Machine"
                     />
                   </div>
 
@@ -446,7 +446,7 @@ export default function SettingsDashboard() {
                       className="adm-input"
                       value={footer.copyright}
                       onChange={e => setFooter({ ...footer, copyright: e.target.value })}
-                      placeholder="e.g. © 2026 Command Code. All rights reserved."
+                      placeholder="e.g. © 2026 Coffee Machine. All rights reserved."
                     />
                   </div>
 

@@ -45,7 +45,7 @@ function formatSize(bytes) {
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const decoded = decodeId(id);
-  if (!decoded) return { title: 'Asset Not Found | Command Code' };
+  if (!decoded) return { title: 'Asset Not Found | Coffee Machine' };
 
   let file = null;
   if (decoded.type === 'f') {
@@ -57,12 +57,12 @@ export async function generateMetadata({ params }) {
   }
 
   if (!file || file.is_public === 0) {
-    return { title: 'Asset Restricted | Command Code' };
+    return { title: 'Asset Restricted | Coffee Machine' };
   }
 
   return {
-    title: `Download: ${file.name} | Command Code`,
-    description: file.description || `Download asset ${file.name} securely from Command Code.`
+    title: `Download: ${file.name} | Coffee Machine`,
+    description: file.description || `Download asset ${file.name} securely from Coffee Machine.`
   };
 }
 

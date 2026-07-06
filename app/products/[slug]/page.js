@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   if (!product) return { title: 'Sản phẩm không tìm thấy' };
 
   return {
-    title: product.meta_title || `${product.name} - Giá tốt, chính hãng | FPT Long Châu`,
+    title: product.meta_title || `${product.name} - Giá tốt, chính hãng | Coffee Machine`,
     description: product.meta_description || product.short_description || product.description?.substring(0, 150) || ''
   };
 }

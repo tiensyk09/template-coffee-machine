@@ -11,7 +11,7 @@ export default function HomePageClient({ initialLayout }) {
       type: "hero",
       visible: true,
       configs: {
-        title: "Nhà thuốc FPT Long Châu",
+        title: "Coffee Machine",
         description: "Chuyên thuốc theo đơn · Tư vấn dược sĩ 24/7 · Giao hàng nhanh 3h",
         searchPlaceholder: "Tìm tên thuốc, biệt dược, thực phẩm chức năng...",
         hotline: "1800 6928",
@@ -99,7 +99,7 @@ export default function HomePageClient({ initialLayout }) {
       visible: true,
       configs: {
         title: "GÓC SỨC KHỎE",
-        description: "Kênh kiến thức y khoa chính thống từ dược sĩ & bác sĩ chuyên khoa FPT Long Châu."
+        description: "Kênh kiến thức y khoa chính thống từ dược sĩ & bác sĩ chuyên khoa Coffee Machine."
       }
     }
   ];

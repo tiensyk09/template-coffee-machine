@@ -10,11 +10,11 @@ export async function generateMetadata({ params }) {
     const pages = await query('SELECT * FROM pages WHERE slug = ? AND status = ?', [slug, 'published']);
     const page = pages[0];
     if (!page) {
-      return { title: 'Page Not Found | Command Code' };
+      return { title: 'Page Not Found | Coffee Machine' };
     }
 
     const siteTitleRow = await query('SELECT "value" FROM settings WHERE "key" = ?', ['site_title']);
-    const siteTitleSuffix = siteTitleRow[0]?.value || 'Command Code';
+    const siteTitleSuffix = siteTitleRow[0]?.value || 'Coffee Machine';
 
     return {
       title: page.meta_title || `${page.title} | ${siteTitleSuffix}`,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
     };
   } catch (err) {
     console.error('Failed to generate page metadata:', err);
-    return { title: 'Command Code' };
+    return { title: 'Coffee Machine' };
   }
 }
 

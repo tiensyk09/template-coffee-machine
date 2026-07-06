@@ -177,7 +177,7 @@ export async function POST(request) {
       paymentInfo: payment_method === 'bank' ? {
         bankName: settings.bank_name || 'Vietcombank',
         bankAccount: settings.bank_account || '',
-        bankOwner: settings.bank_owner || 'Nhà Thuốc Long Châu',
+        bankOwner: settings.bank_owner || 'Coffee Machine',
         amount: total,
         description: `Thanh toan don hang ${orderCode}`,
         qrUrl: `https://qr.sepay.vn/img?bank=${settings.bank_name || 'VCB'}&acc=${settings.bank_account || ''}&amount=${total}&des=Thanh toan ${orderCode}`,
