@@ -29,6 +29,11 @@ export default function ApiDevPage() {
   const [creating, setCreating] = useState(false);
   const [justCreated, setJustCreated] = useState(null);
 
+  // ── Token dùng để test + upload ảnh ──
+  const [token, setToken] = useState('');
+  const [imgUploading, setImgUploading] = useState(false);
+  const [uploaded, setUploaded] = useState(null);
+
   useEffect(() => { loadKeys(); }, []);
   async function loadKeys() {
     try { const r = await fetch('/api/admin/api-keys'); if (r.ok) { const d = await r.json(); setKeys(d.keys || []); } } catch {}
@@ -48,6 +53,44 @@ export default function ApiDevPage() {
     try { await fetch(`/api/admin/api-keys/${id}`, { method: 'DELETE' }); loadKeys(); } catch {}
   }
 
+  // ── Upload ảnh (dùng token) → trả URL để làm ảnh đại diện bài viết ──
+  function readAsDataURL(file) {
+    return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
+  }
+  function makeThumb(dataUrl, max = 400) {
+    return new Promise((res) => {
+      const img = new Image();
+      img.onload = () => {
+        const scale = Math.min(1, max / Math.max(img.width, img.height));
+        const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+        const c = document.createElement('canvas'); c.width = w; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, w, h);
+        try { res(c.toDataURL('image/jpeg', 0.8)); } catch { res(null); }
+      };
+      img.onerror = () => res(null);
+      img.src = dataUrl;
+    });
+  }
+  async function uploadImage(file) {
+    if (!token.trim()) { alert('Nhập API Token phía trên trước khi upload.'); return; }
+    setImgUploading(true); setUploaded(null);
+    try {
+      const dataUrl = await readAsDataURL(file);
+      const thumbDataUrl = await makeThumb(dataUrl);
+      const r = await fetch('/api/upload', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-API-Key': token.trim() }, body: JSON.stringify({ dataUrl, filename: file.name, thumbDataUrl }) });
+      const d = await r.json();
+      if (r.ok && d.url) setUploaded({ url: d.url, thumb: d.thumbnailUrl || d.thumb_url || d.thumbUrl || null });
+      else alert('Upload lỗi: ' + (d.error || r.status));
+    } catch (e) { alert('Lỗi: ' + e.message); } finally { setImgUploading(false); }
+  }
+  function insertImageToBody(url) {
+    setMethod('POST'); if (!path.includes('/api/posts')) setPath('/api/posts');
+    let obj = {};
+    try { obj = body.trim() ? JSON.parse(body) : {}; } catch { obj = { title: 'Bài viết từ API', content: '...', status: 'published' }; }
+    obj.image = url;
+    setBody(JSON.stringify(obj, null, 2));
+  }
+
   function pick(ep) {
     setMethod(ep.method); setPath(ep.path); setBody(ep.body || ''); setResp(null);
   }
@@ -56,8 +99,9 @@ export default function ApiDevPage() {
     setLoading(true); setResp(null);
     const t0 = performance.now();
     try {
-      const opts = { method };
-      if (method !== 'GET' && body.trim()) { opts.headers = { 'Content-Type': 'application/json' }; opts.body = body; }
+      const opts = { method, headers: {} };
+      if (token.trim()) opts.headers['X-API-Key'] = token.trim();
+      if (method !== 'GET' && body.trim()) { opts.headers['Content-Type'] = 'application/json'; opts.body = body; }
       const r = await fetch(path, opts);
       const text = await r.text();
       let pretty = text; try { pretty = JSON.stringify(JSON.parse(text), null, 2); } catch {}
@@ -67,7 +111,9 @@ export default function ApiDevPage() {
     } finally { setLoading(false); }
   }
 
-  const curl = `curl -X ${method} "${typeof window !== 'undefined' ? window.location.origin : ''}${path}"${method !== 'GET' && body.trim() ? ` \\\n  -H "Content-Type: application/json" \\\n  -d '${body.replace(/\n/g, '')}'` : ''}`;
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const authH = token.trim() ? ` \\\n  -H "X-API-Key: ${token.trim()}"` : '';
+  const curl = `curl -X ${method} "${origin}${path}"${authH}${method !== 'GET' && body.trim() ? ` \\\n  -H "Content-Type: application/json" \\\n  -d '${body.replace(/\n/g, '')}'` : ''}`;
 
   const box = { background: 'var(--admin-card-bg)', border: '1px solid var(--admin-border)', borderRadius: 14, padding: 20 };
   const input = { width: '100%', padding: '10px 12px', borderRadius: 8, border: '1px solid var(--admin-border)', background: 'var(--admin-bg)', color: 'var(--admin-text)', fontSize: 13, fontFamily: 'monospace', outline: 'none' };
@@ -133,6 +179,8 @@ export default function ApiDevPage() {
         {/* Tester */}
         <div style={box}>
           <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--admin-text)', marginBottom: 14, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Thử API</h2>
+          <input value={token} onChange={e => setToken(e.target.value)} placeholder="🔑 API Token (sk_...) — cần cho endpoint 🔒 & upload ảnh"
+            style={{ ...input, marginBottom: 10, fontFamily: 'inherit' }} />
           <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
             <select value={method} onChange={e => setMethod(e.target.value)} style={{ ...input, width: 90, fontWeight: 700, color: mColor(method) }}>
               <option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option>
@@ -158,6 +206,25 @@ export default function ApiDevPage() {
           <div style={{ marginTop: 16 }}>
             <div style={{ fontSize: 11.5, color: 'var(--admin-muted)', marginBottom: 6 }}>Ví dụ curl:</div>
             <pre style={{ background: 'var(--admin-bg)', border: '1px solid var(--admin-border)', borderRadius: 8, padding: 12, fontSize: 11.5, color: 'var(--admin-text)', whiteSpace: 'pre-wrap', margin: 0 }}>{curl}</pre>
+          </div>
+
+          {/* UPLOAD ẢNH ĐẠI DIỆN */}
+          <div style={{ marginTop: 16, borderTop: '1px solid var(--admin-border)', paddingTop: 16 }}>
+            <div style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--admin-text)', marginBottom: 4 }}>🖼️ Upload ảnh (dùng token) → lấy URL làm ảnh đại diện bài viết</div>
+            <div style={{ fontSize: 11.5, color: 'var(--admin-muted)', marginBottom: 10 }}>Chọn ảnh → tự tạo thumbnail → gọi <code>POST /api/upload</code> kèm token → trả URL để gắn vào <code>image</code> của bài viết.</div>
+            <input type="file" accept="image/*" onChange={e => { const f = e.target.files?.[0]; if (f) uploadImage(f); e.target.value = ''; }} style={{ fontSize: 12, color: 'var(--admin-text)', marginBottom: 10, display: 'block' }} />
+            {imgUploading && <div style={{ fontSize: 12, color: 'var(--admin-muted)' }}>Đang tải ảnh lên...</div>}
+            {uploaded && (
+              <div style={{ background: 'var(--admin-bg)', border: '1px solid var(--admin-border)', borderRadius: 8, padding: 12 }}>
+                {uploaded.thumb && <img src={uploaded.thumb} alt="thumbnail" style={{ maxWidth: 120, borderRadius: 6, marginBottom: 8, display: 'block' }} />}
+                <div style={{ fontSize: 11.5, color: 'var(--admin-muted)', marginBottom: 8 }}>Ảnh đại diện: <code style={{ color: 'var(--admin-text)', wordBreak: 'break-all' }}>{uploaded.url}</code></div>
+                {uploaded.thumb_url && <div style={{ fontSize: 11.5, color: 'var(--admin-muted)', marginBottom: 8 }}>Thumbnail: <code style={{ color: 'var(--admin-text)', wordBreak: 'break-all' }}>{uploaded.thumb_url}</code></div>}
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  <button onClick={() => insertImageToBody(uploaded.url)} style={{ background: 'var(--admin-primary)', color: '#fff', border: 'none', borderRadius: 6, padding: '7px 12px', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>+ Chèn làm ảnh đại diện (POST /api/posts)</button>
+                  <button onClick={() => { try { navigator.clipboard.writeText(uploaded.url); } catch {} }} style={{ background: 'var(--admin-bg)', color: 'var(--admin-text)', border: '1px solid var(--admin-border)', borderRadius: 6, padding: '7px 12px', fontSize: 12, fontWeight: 700, cursor: 'pointer' }}>Copy URL</button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
