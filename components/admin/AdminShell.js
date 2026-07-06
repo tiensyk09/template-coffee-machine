@@ -25,6 +25,8 @@ const navItems = [
   { section: 'HỆ THỐNG' },
   { href: '/admin/settings', label: 'Cài đặt chung', icon: '⚙️', staff: true },
   { href: '/admin/plugins', label: 'Tiện ích mở rộng', icon: '🧩', staff: true },
+  { href: '/admin/backup', label: 'Sao lưu & Khôi phục', icon: '💾' },
+  { href: '/admin/api', label: 'API cho Developer', icon: '🔌' },
   { href: '/admin/profile', label: 'Hồ sơ của tôi', icon: '👤' },
   { href: '/', label: 'Về trang web', icon: '↩️' },
 ];
