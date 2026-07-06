@@ -13,6 +13,7 @@ const ENDPOINTS = [
   { method: 'GET', path: '/api/files', desc: 'Thư viện media' },
   { method: 'POST', path: '/api/coupons/validate', desc: 'Kiểm tra mã giảm giá', body: '{\n  "code": "COFFEE10",\n  "orderTotal": 5000000\n}' },
   { method: 'POST', path: '/api/contact', desc: 'Gửi liên hệ / đăng ký', body: '{\n  "name": "Nguyễn Văn A",\n  "phone": "0900000000",\n  "message": "Xin tư vấn"\n}' },
+  { method: 'POST', path: '/api/posts', desc: 'Tạo bài viết 🔒 (cần token)', body: '{\n  "title": "Bài viết từ API",\n  "content": "Nội dung bài viết...",\n  "status": "published"\n}' },
 ];
 
 export default function ApiDevPage() {
@@ -81,7 +82,12 @@ export default function ApiDevPage() {
       {/* API TOKEN */}
       <div style={{ background: 'var(--admin-card-bg)', border: '1px solid var(--admin-border)', borderRadius: 14, padding: 20, marginBottom: 20 }}>
         <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--admin-text)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.04em' }}>API Token</h2>
-        <p style={{ color: 'var(--admin-muted)', fontSize: 12.5, marginBottom: 14 }}>Tạo token cho client bên ngoài gọi API — gửi qua header <code>X-API-Key: &lt;token&gt;</code> hoặc <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+        <p style={{ color: 'var(--admin-muted)', fontSize: 12.5, marginBottom: 8, lineHeight: 1.6 }}>Token cho client bên ngoài gọi các API ghi (tạo bài viết, upload…). Đọc công khai không cần token; <strong>ghi thì bắt buộc</strong>. 3 cách gửi (giống WordPress REST API):</p>
+        <ul style={{ margin: '0 0 14px', paddingLeft: 18, color: 'var(--admin-muted)', fontSize: 12, lineHeight: 1.9 }}>
+          <li><code>X-API-Key: &lt;token&gt;</code></li>
+          <li><code>Authorization: Bearer &lt;token&gt;</code></li>
+          <li><code>Authorization: Basic base64("user:&lt;token&gt;")</code> — kiểu Application Password của WordPress</li>
+        </ul>
         <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
           <input value={newKeyName} onChange={e => setNewKeyName(e.target.value)} placeholder="Tên token (vd: App di động, Zapier...)" style={{ flex: 1, padding: '9px 12px', borderRadius: 8, border: '1px solid var(--admin-border)', background: 'var(--admin-bg)', color: 'var(--admin-text)', fontSize: 13, outline: 'none' }} />
           <button onClick={createKey} disabled={creating} style={{ background: 'var(--admin-primary)', color: '#fff', border: 'none', borderRadius: 8, padding: '9px 18px', fontWeight: 700, cursor: 'pointer', fontSize: 13, whiteSpace: 'nowrap', opacity: creating ? 0.6 : 1 }}>{creating ? '...' : '+ Tạo token'}</button>

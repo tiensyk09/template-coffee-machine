@@ -3,12 +3,14 @@ import { writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { getAuthUser, requireAuth } from '@/lib/auth';
+import { resolveUser } from '@/lib/apiAuth';
 import { query } from '@/lib/db';
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10MB limit
 
 export async function POST(request) {
-  const user = await getAuthUser();
+  // Chấp nhận session HOẶC API token (X-API-Key / Bearer / Basic — kiểu WordPress)
+  const user = await resolveUser(request, await getAuthUser());
   const authErr = requireAuth(user, 'mod');
   if (authErr) return NextResponse.json({ error: authErr.error }, { status: authErr.status });
 
