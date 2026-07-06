@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AdminShell from '@/components/admin/AdminShell';
 
 const ENDPOINTS = [
   { method: 'GET', path: '/api/products?limit=12', desc: 'Danh sách sản phẩm (limit, cat)' },
@@ -20,6 +21,31 @@ export default function ApiDevPage() {
   const [body, setBody] = useState('');
   const [loading, setLoading] = useState(false);
   const [resp, setResp] = useState(null);
+
+  // ── API keys / token ──
+  const [keys, setKeys] = useState([]);
+  const [newKeyName, setNewKeyName] = useState('');
+  const [creating, setCreating] = useState(false);
+  const [justCreated, setJustCreated] = useState(null);
+
+  useEffect(() => { loadKeys(); }, []);
+  async function loadKeys() {
+    try { const r = await fetch('/api/admin/api-keys'); if (r.ok) { const d = await r.json(); setKeys(d.keys || []); } } catch {}
+  }
+  async function createKey() {
+    if (creating) return;
+    setCreating(true); setJustCreated(null);
+    try {
+      const r = await fetch('/api/admin/api-keys', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: newKeyName || 'API Key' }) });
+      const d = await r.json();
+      if (r.ok && d.key) { setJustCreated(d.key.api_key); setNewKeyName(''); loadKeys(); }
+      else alert('Lỗi tạo token: ' + (d.error || ''));
+    } catch (e) { alert('Lỗi: ' + e.message); } finally { setCreating(false); }
+  }
+  async function deleteKey(id) {
+    if (!confirm('Thu hồi token này?')) return;
+    try { await fetch(`/api/admin/api-keys/${id}`, { method: 'DELETE' }); loadKeys(); } catch {}
+  }
 
   function pick(ep) {
     setMethod(ep.method); setPath(ep.path); setBody(ep.body || ''); setResp(null);
@@ -47,9 +73,39 @@ export default function ApiDevPage() {
   const mColor = (m) => m === 'GET' ? '#16a34a' : m === 'POST' ? '#d97706' : '#6366f1';
 
   return (
+    <AdminShell title="API cho Developer">
     <div style={{ maxWidth: 900, margin: '0 auto' }}>
       <h1 style={{ fontSize: 22, fontWeight: 800, color: 'var(--admin-text)', marginBottom: 6 }}>API cho Developer</h1>
-      <p style={{ color: 'var(--admin-muted)', fontSize: 13, marginBottom: 24 }}>REST API của website. Bấm một endpoint để nạp vào khung test, chỉnh và gửi thử ngay.</p>
+      <p style={{ color: 'var(--admin-muted)', fontSize: 13, marginBottom: 20 }}>REST API của website. Bấm một endpoint để nạp vào khung test, chỉnh và gửi thử ngay.</p>
+
+      {/* API TOKEN */}
+      <div style={{ background: 'var(--admin-card-bg)', border: '1px solid var(--admin-border)', borderRadius: 14, padding: 20, marginBottom: 20 }}>
+        <h2 style={{ fontSize: 14, fontWeight: 800, color: 'var(--admin-text)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.04em' }}>API Token</h2>
+        <p style={{ color: 'var(--admin-muted)', fontSize: 12.5, marginBottom: 14 }}>Tạo token cho client bên ngoài gọi API — gửi qua header <code>X-API-Key: &lt;token&gt;</code> hoặc <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+          <input value={newKeyName} onChange={e => setNewKeyName(e.target.value)} placeholder="Tên token (vd: App di động, Zapier...)" style={{ flex: 1, padding: '9px 12px', borderRadius: 8, border: '1px solid var(--admin-border)', background: 'var(--admin-bg)', color: 'var(--admin-text)', fontSize: 13, outline: 'none' }} />
+          <button onClick={createKey} disabled={creating} style={{ background: 'var(--admin-primary)', color: '#fff', border: 'none', borderRadius: 8, padding: '9px 18px', fontWeight: 700, cursor: 'pointer', fontSize: 13, whiteSpace: 'nowrap', opacity: creating ? 0.6 : 1 }}>{creating ? '...' : '+ Tạo token'}</button>
+        </div>
+        {justCreated && (
+          <div style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 8, padding: 12, marginBottom: 14 }}>
+            <div style={{ fontSize: 11.5, color: '#16a34a', fontWeight: 700, marginBottom: 6 }}>✅ Token mới — sao chép & lưu lại ngay:</div>
+            <code style={{ fontSize: 12, color: 'var(--admin-text)', wordBreak: 'break-all', display: 'block' }}>{justCreated}</code>
+          </div>
+        )}
+        {keys.length > 0 ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {keys.map(k => (
+              <div key={k.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, background: 'var(--admin-bg)', border: '1px solid var(--admin-border)', borderRadius: 8, padding: '8px 12px' }}>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--admin-text)' }}>{k.name}</div>
+                  <code style={{ fontSize: 11, color: 'var(--admin-muted)' }}>{String(k.api_key).slice(0, 10)}••••••{String(k.api_key).slice(-4)}</code>
+                </div>
+                <button onClick={() => deleteKey(k.id)} style={{ background: 'transparent', border: '1px solid #ef4444', color: '#ef4444', borderRadius: 6, padding: '5px 10px', fontSize: 11.5, fontWeight: 700, cursor: 'pointer', flexShrink: 0 }}>Thu hồi</button>
+              </div>
+            ))}
+          </div>
+        ) : <div style={{ fontSize: 12.5, color: 'var(--admin-muted)' }}>Chưa có token nào.</div>}
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 20 }} className="api-grid">
         {/* Danh sách endpoint */}
@@ -102,5 +158,6 @@ export default function ApiDevPage() {
 
       <style>{`@media (max-width: 820px){ .api-grid{ grid-template-columns: 1fr !important; } }`}</style>
     </div>
+    </AdminShell>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import JSZip from 'jszip';
+import AdminShell from '@/components/admin/AdminShell';
 
 export default function BackupPage() {
   const [exportDb, setExportDb] = useState(true);
@@ -84,6 +85,7 @@ export default function BackupPage() {
     color: m.type === 'error' ? '#ef4444' : m.type === 'success' ? '#16a34a' : 'var(--admin-primary)' } : {};
 
   return (
+    <AdminShell title="Sao lưu & Khôi phục">
     <div style={{ maxWidth: 760, margin: '0 auto' }}>
       <h1 style={{ fontSize: 22, fontWeight: 800, color: 'var(--admin-text)', marginBottom: 6 }}>Sao lưu & Khôi phục</h1>
       <p style={{ color: 'var(--admin-muted)', fontSize: 13, marginBottom: 24 }}>Xuất/nhập cơ sở dữ liệu (JSON + SQL) và tệp tin (ảnh/media) dưới dạng gói .zip.</p>
@@ -136,5 +138,6 @@ export default function BackupPage() {
         </div>
       )}
     </div>
+    </AdminShell>
   );
 }
